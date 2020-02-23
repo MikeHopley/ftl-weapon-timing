@@ -1,4 +1,4 @@
-# FTL weapons timing calculator
+# FTL enemy weapons timing calculator
 
 This tool calculates when enemy weapons will fire.
 
