@@ -1,0 +1,96 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@riophae/vue-treeselect@^0.4.0/dist/vue-treeselect.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>FTL weapons timing calculator</h1>
+<div id="app">
+	<div id="main">	
+		<div class="weapons-selection">
+			<treeselect v-model="value1" 
+				:options="options"
+				:disable-branch-nodes="true"
+				:max-height="400"
+				:disable-fuzzy-matching="true"
+				placeholder="Add a weapon">
+			</treeselect>
+			<treeselect v-model="value2" 
+				:options="options"
+				:disable-branch-nodes="true"
+				:max-height="400"
+				:disable-fuzzy-matching="true"
+				placeholder="Add a weapon">
+			</treeselect>
+			<treeselect v-model="value3" 
+				:options="options"
+				:disable-branch-nodes="true"
+				:max-height="400"
+				:disable-fuzzy-matching="true"
+				placeholder="Add a weapon">
+			</treeselect>
+			<treeselect v-model="value4" 
+				:options="options"
+				:disable-branch-nodes="true"
+				:max-height="400"
+				:disable-fuzzy-matching="true"
+				placeholder="Add a weapon">
+			</treeselect>
+		</div>
+
+		<div class="controls">
+			<div class="control-item">
+				<input type="checkbox" id="manning" v-model="manning">
+				<label for="manning">Manning bonus</label>
+			</div>
+
+			<div class="control-item">
+				<input type="checkbox" id="balance" v-model="balanceMod">
+				<label for="balance">Balance mod</label>
+			</div>
+
+			<div class="control-item">
+				<label for="timelimit">Time limit</label>
+				<input type="number" min="0" max="1000" step="10" v-model.number="timeLimit">
+			</div>
+
+			<div class="radio-group">
+				<p>Missile limit</p>
+				<div class="control-item">
+					<input type="radio" id="missiles10" value="10" v-model.number="missiles">
+					<label for="missiles10">10</label>
+				</div>
+				<div class="control-item">
+					<input type="radio" id="missiles14" value="14" v-model.number="missiles">
+					<label for="missiles14">14</label>
+				</div>
+				<div class="control-item">
+					<input type="radio" id="missiles6" value="6" v-model.number="missiles">
+					<label for="missiles6">6</label>
+				</div>
+			</div>
+			<p><small>Most enemies have 10 missiles. The biggest Mantis and Slug ships have 14. The smallest Rock and Engi ships have 6, as do Slug Scouts and Mantis Interceptors.</small></p>
+
+			<p><small>Swarm Missile usage is ignored by this calculator. Enemies can only have Swarm Missiles in Balance Mod.</small></p>
+		</div>
+
+
+	</div>
+
+	<div id="results">
+		<table>
+			<tr v-for="weapon in timings()" v-bind:class="{ reset: weapon.reset }">
+				<td class="weaponTime">{{ weapon.time }}</td>
+				<td>{{ weapon.name }}</td>
+			</tr>
+		</table>
+	</div>
+
+</div>
+
+<script src="vue.js"></script>
+<script src="vue-treeselect-0.4.js"></script>
+<script src="weapons.js"></script>
+</body>
+</html>

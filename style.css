@@ -1,0 +1,120 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* 
+	https://twitter.com/heydonworks/status/1084856193795919874
+*/
+body {
+	padding: 1em;
+	max-width: 60em;
+	margin: 0 auto;
+	font-family: Open Sans;
+	color: white;
+	background: #222;
+}
+#app {
+	display: flex;
+	flex-wrap: wrap;
+	--margin: 1em;
+	--modifier: calc(30em - 100%);
+	margin: calc(var(--margin) * -1);
+	align-items: space-between;
+}
+#app > * {
+	flex-grow: 1;
+	flex-basis: calc(var(--modifier) * 999);
+	margin: var(--margin);
+}
+
+.weapons-selection {
+	max-width: 60em;
+	justify-content: space-between;
+}
+
+.weapons-selection > * {
+	margin-bottom: 1em;
+	max-width: 20em
+}
+th, td {
+	padding: 0.25em 1em;
+}
+table {
+	margin-top: -0.5em;
+	border-collapse: collapse;
+}
+tr {
+	white-space: nowrap;
+}
+tr+tr {
+	border-top: 1px solid #555;
+}
+.weaponTime {
+	text-align: right
+}
+.reset {
+	background: #333;
+}
+.controls {
+	margin-top: 2em;
+}
+.control-item {
+	display: block;
+	margin-bottom: 1em;
+}
+.radio-group .control-item {
+	margin-left: 1em;
+}
+input[type=checkbox], input[type=radio] {
+    transform: scale(1.5);
+}
+input[type=number] {
+	margin-left: 1em;
+	font-size: 120%;
+	color: white;
+	background: #333;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 3px;
+}
+.joiner {
+	color red;
+}
+
+/* Vue-treeselect overrides */
+
+.vue-treeselect {
+	min-width: 15em;
+	max-width: 20em;
+}
+.vue-treeselect__placeholder {
+	color: #ddd;
+}
+.vue-treeselect__single-value {
+	color: white !important;
+	font-weight: bold !important;
+}
+.vue-treeselect input {
+	color: white;
+}
+.vue-treeselect,
+.vue-treeselect__single-value,
+.vue-treeselect__control,
+.vue-treeselect__menu,
+.vue-treeselect__tip {
+	color: white !important;
+	background: #333 !important;
+}
+.vue-treeselect__option--highlight {
+	background: #222 !important;
+}
+.vue-treeselect__option--selected {
+	background: #111 !important;
+}
+.vue-treeselect__control-arrow,
+.vue-treeselect__option-arrow {
+	color: #fff !important;
+}
