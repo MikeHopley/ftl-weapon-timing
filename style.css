@@ -8,6 +8,7 @@ html {
 /* 
 	https://twitter.com/heydonworks/status/1084856193795919874
 */
+a { color: white !important; }
 body {
 	padding: 1em;
 	max-width: 60em;
